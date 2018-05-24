@@ -1,4 +1,4 @@
-local Class = require 'vendor.hump.class'
+local Class = require 'lib.hump.class'
 
 local Platform = Class{}
 
