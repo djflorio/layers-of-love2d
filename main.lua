@@ -1,7 +1,6 @@
 bump = require 'lib.bump.bump'
 local player = require 'parts.player'
 local platforms = require 'parts.platforms'
-local Platform = require 'parts.platform'
 
 local floor = {
     x = 0,
@@ -12,9 +11,9 @@ local floor = {
 
 function love.load()
     world = bump.newWorld(16)
-    world:add(player, player.x, player.y, player.w, player.h)
     world:add(floor, floor.x, floor.y, floor.w, floor.h)
     platforms.init(world)
+    player.init(world)
 end
 
 function love.update(dt)

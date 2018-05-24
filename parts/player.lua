@@ -1,4 +1,4 @@
-player = {
+local player = {
     w = 32,
     h = 32,
     x = 0,
@@ -25,6 +25,10 @@ player.filter = function(item, other)
     if playerBottom <= y then
         return 'slide'
     end
+end
+
+player.init = function(world)
+    world:add(player, player.x, player.y, player.w, player.h)
 end
 
 player.update = function(dt)
