@@ -4,7 +4,7 @@ This is a really quick game prototype I'm making with Love2d. A square bounces b
 For information on installing and running Love2d on your system, refer to the [Love2d website](https://love2d.org/).
 
 ## Requirements
-Download the following libraries and put them in a top level folder called "vendors".
+Download the following libraries and put them in a top level folder called "lib".
 - bump: https://github.com/kikito/bump.lua
 - hump: https://github.com/vrld/hump
 
