@@ -1,9 +1,10 @@
+local globals = require('globals')
+
 local player = {
     w = 32,
     h = 32,
     x = 0,
     y = love.graphics.getHeight() - 42,
-    speed = 5,
     xVelocity = 5,
     yVelocity = 0,
     gravity = 100,
@@ -46,11 +47,11 @@ player.update = function(dt)
     player.yVelocity = player.yVelocity + player.gravity * dt
 
     if (player.x >= love.graphics.getWidth() - player.w) then
-        player.xVelocity = -player.speed
+        player.xVelocity = -globals.playerSpeed
     end
 
     if (player.x <= 0) then
-        player.xVelocity = player.speed
+        player.xVelocity = globals.playerSpeed
     end
 
     if love.keyboard.isDown("space") and not player.isJumping then
