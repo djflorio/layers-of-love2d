@@ -1,4 +1,4 @@
-local globals = require('globals')
+local globals = require 'globals'
 
 local Platform = require 'parts.Platform'
 
@@ -16,8 +16,8 @@ local function addPlatform()
     if (#platforms > 5) then
         table.remove(platforms, 1)
     end
-    globals.playerSpeed = globals.playerSpeed * 1.1
-    print(globals.playerSpeed)
+    globals.playerSpeed = globals.playerSpeed * globals.increasePercent
+    globals.layersPassed = globals.layersPassed + 1
 end
 
 platforms.init = function(world)

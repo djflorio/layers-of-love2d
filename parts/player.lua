@@ -1,11 +1,11 @@
-local globals = require('globals')
+local globals = require 'globals'
 
 local player = {
     w = 32,
     h = 32,
     x = 0,
     y = love.graphics.getHeight() - 42,
-    xVelocity = 5,
+    xVelocity = globals.playerSpeed,
     yVelocity = 0,
     gravity = 100,
     friction = 5,
@@ -38,21 +38,20 @@ player.update = function(dt)
         goalX = player.x
     else
         goalX = player.x + player.xVelocity
+        if (goalX >= love.graphics.getWidth() - player.w) then
+            goalX = love.graphics.getWidth() - player.w
+            player.xVelocity = -globals.playerSpeed
+        elseif (goalX <= 0) then
+            goalX = 0
+            player.xVelocity = globals.playerSpeed
+        end
     end
     local goalY = player.y + player.yVelocity
-
-    player.x, player.y, collisions = world:move(player, goalX, goalY)
 
     player.yVelocity = player.yVelocity * (1 - math.min(dt * player.friction, 1))
     player.yVelocity = player.yVelocity + player.gravity * dt
 
-    if (player.x >= love.graphics.getWidth() - player.w) then
-        player.xVelocity = -globals.playerSpeed
-    end
-
-    if (player.x <= 0) then
-        player.xVelocity = globals.playerSpeed
-    end
+    player.x, player.y, collisions = world:move(player, goalX, goalY)
 
     if love.keyboard.isDown("space") and not player.isJumping then
         player.isJumping = true

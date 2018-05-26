@@ -2,6 +2,7 @@ local bump = require 'lib.bump.bump'
 local player = require 'parts.player'
 local platforms = require 'parts.platforms'
 local floor = require 'parts.floor'
+local hud = require 'parts.hud'
 
 function love.load()
     world = bump.newWorld(16)
@@ -16,8 +17,10 @@ function love.update(dt)
 end
 
 function love.draw()
-    love.graphics.translate(0, -player.y + love.graphics.getHeight() - 200)
+    local offset = -player.y + love.graphics.getHeight() - 200
+    love.graphics.translate(0, offset)
     floor.draw()
     platforms.draw()
     player.draw()
+    hud.draw(offset)
 end
