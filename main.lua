@@ -1,4 +1,4 @@
-bump = require 'lib.bump.bump'
+local bump = require 'lib.bump.bump'
 local player = require 'parts.player'
 local platforms = require 'parts.platforms'
 local floor = require 'parts.floor'
