@@ -82,7 +82,7 @@ player.update = function(dt)
 end
 
 player.draw = function()
-    love.graphics.setColor(0, 255, 255)
+    love.graphics.setColor(globals.colors.player)
     love.graphics.rectangle(
         'fill',
         player.x,

@@ -1,3 +1,5 @@
+local globals = require 'globals'
+
 local floor = {
   x = 0,
   y = love.graphics.getHeight() - 10,
@@ -10,7 +12,7 @@ floor.init = function(world)
 end
 
 floor.draw = function()
-  love.graphics.setColor(255, 255, 255)
+  love.graphics.setColor(globals.colors.floor)
   love.graphics.rectangle(
       'fill',
       floor.x, floor.y, floor.w, floor.h

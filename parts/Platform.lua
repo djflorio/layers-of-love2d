@@ -1,4 +1,5 @@
 local Class = require 'lib.hump.class'
+local globals = require 'globals'
 
 local Platform = Class{}
 
@@ -50,7 +51,7 @@ end
 
 function Platform:draw(p)
     if not p.closed then
-        love.graphics.setColor(255, 255, 255)
+        love.graphics.setColor(globals.colors.platform)
         love.graphics.rectangle(
             'fill',
             p.p1.x,
@@ -66,7 +67,7 @@ function Platform:draw(p)
             p.p2.h
         )
     else
-        love.graphics.setColor(0, 255, 0)
+        love.graphics.setColor(globals.colors.platformCleared)
         love.graphics.rectangle(
             'fill',
             p.full.x,
