@@ -1,17 +1,11 @@
 bump = require 'lib.bump.bump'
 local player = require 'parts.player'
 local platforms = require 'parts.platforms'
-
-local floor = {
-    x = 0,
-    y = love.graphics.getHeight() - 10,
-    w = love.graphics.getWidth(),
-    h = 10
-}
+local floor = require 'parts.floor'
 
 function love.load()
     world = bump.newWorld(16)
-    world:add(floor, floor.x, floor.y, floor.w, floor.h)
+    floor.init(world)
     platforms.init(world)
     player.init(world)
 end
@@ -23,11 +17,7 @@ end
 
 function love.draw()
     love.graphics.translate(0, -player.y + love.graphics.getHeight() - 200)
+    floor.draw()
     platforms.draw()
-    love.graphics.setColor(255, 255, 255)
-    love.graphics.rectangle(
-        'fill',
-        floor.x, floor.y, floor.w, floor.h
-    )
     player.draw()
 end
