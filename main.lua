@@ -7,12 +7,12 @@ local background = require 'parts.background'
 local audio = require 'assets.audio'
 local animations = require 'parts.animations'
 local globals = require 'globals'
+local gameover = require 'parts.gameover'
+local fonts = require 'parts.fonts'
 
 function love.load()
     world = bump.newWorld(16)
-    font = love.graphics.newFont(16)
-    love.graphics.setFont(font)
-
+    fonts.init()
     globals.init()
     animations.init()
     floor.init(world)
@@ -33,7 +33,7 @@ end
 
 function love.draw()
     local xOffset = 0
-    local yOffset = -player.y + love.graphics.getHeight() - 200
+    local yOffset = -player.y + love.graphics.getHeight() - 170
     if animations.hurt.playing then
         xOffset = love.math.random(-10, 10)
         yOffset = yOffset + love.math.random(-10, 10)
@@ -44,4 +44,7 @@ function love.draw()
     platforms.draw()
     player.draw()
     hud.draw(yOffset)
+    if not globals.playing then
+        gameover.draw(yOffset)
+    end
 end

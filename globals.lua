@@ -6,19 +6,23 @@ end
 local themes = {
     easy = {
         primary = genColor(49, 71, 49),
-        secondary = genColor(154, 224, 154)
+        secondary = genColor(154, 224, 154),
+        hud = genColor(255, 255, 255, 0.8)
     },
     medium = {
         primary = genColor(104, 74, 19),
-        secondary = genColor(239, 206, 141)
+        secondary = genColor(239, 206, 141),
+        hud = genColor(255, 255, 255, 0.8)
     },
     hard = {
         primary = genColor(81, 30, 7),
-        secondary = genColor(247, 140, 91)
+        secondary = genColor(247, 140, 91),
+        hud = genColor(255, 255, 255, 0.8)
     },
     expert = {
         primary = genColor(255, 50, 50),
-        secondary = genColor(0, 0, 0)
+        secondary = genColor(0, 0, 0),
+        hud = genColor(255, 255, 255, 0.8)
     }
 }
 
