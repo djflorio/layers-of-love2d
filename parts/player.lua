@@ -2,35 +2,24 @@ local globals = require 'globals'
 local audio = require 'assets.audio'
 local animations = require 'parts.animations'
 
-local player = {
-    w = 32,
-    h = 32,
-    x = 0,
-    y = love.graphics.getHeight() - 42,
-    xVelocity = globals.playerSpeed,
-    yVelocity = 0,
-    gravity = 100,
-    friction = 5,
-    jumpSpeed = 30,
-    isGrounded = true,
-    isJumping = false,
-    hasReachedMax = false,
-    jumpStart = 0,
-    jumpMax = 150
-}
-
-player.filter = function(item, other)
-    local x, y, w, h = world:getRect(other)
-    local px, py, pw, ph = world:getRect(item)
-    local playerBottom = py + ph
-    local otherBottom = y + h
-
-    if playerBottom <= y then
-        return 'slide'
-    end
-end
+local player = {}
 
 player.init = function(world)
+    globals.playerHealth = 3
+    player.w = 32
+    player.h = 32
+    player.x = 0
+    player.y = love.graphics.getHeight() - 42
+    player.xVelocity = globals.playerSpeed
+    player.yVelocity = 0
+    player.gravity = 100
+    player.friction = 5
+    player.jumpSpeed = 30
+    player.isGrounded = true
+    player.isJumping = false
+    player.hasReachedMax = false
+    player.jumpStart = 0
+    player.jumpMax = 150
     world:add(player, player.x, player.y, player.w, player.h)
 end
 

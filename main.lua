@@ -12,6 +12,9 @@ function love.load()
     world = bump.newWorld(16)
     font = love.graphics.newFont(16)
     love.graphics.setFont(font)
+
+    globals.init()
+    animations.init()
     floor.init(world)
     platforms.init(world)
     player.init(world)
@@ -22,6 +25,8 @@ function love.update(dt)
     if globals.playing then
         player.update(dt)
         platforms.update(player, dt)
+    elseif love.keyboard.isDown("return") then
+        love.load()
     end
     animations.update()
 end

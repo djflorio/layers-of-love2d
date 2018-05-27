@@ -22,15 +22,17 @@ local themes = {
     }
 }
 
-local globals = {
-    holeSize = 100,
-    playerSpeed = 5,
-    playerHealth = 3,
-    increasePercent = 1.05,
-    layersPassed = 0,
-    colors = themes.easy,
-    playing = true
-}
+local globals = {}
+
+globals.init = function()
+    globals.holeSize = 100
+    globals.playerSpeed = 5
+    globals.playerHealth = 3
+    globals.increasePercent = 1.05
+    globals.layersPassed = 0
+    globals.colors = themes.easy
+    globals.playing = true
+end
 
 globals.setTheme = function(theme)
     if theme == 'medium' then

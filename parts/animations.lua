@@ -1,11 +1,13 @@
-local animations = {
-    hurt = {
+local animations = {}
+
+animations.init = function()
+    animations.hurt = {
         duration = 0.01,
         startTime = 0,
         playing = false,
         color = {1,0,0}
     }
-}
+end
 
 animations.update = function()
     if animations.hurt.playing then

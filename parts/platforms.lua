@@ -24,10 +24,10 @@ local function addPlatform()
     if (globals.layersPassed == 30) then
         globals.setTheme('expert')
     end
-    print(globals.playerSpeed)
 end
 
 platforms.init = function(world)
+    platforms = {}
     for i=1, 2 do
         local w = love.graphics.getWidth()
         local hSize = globals.holeSize
