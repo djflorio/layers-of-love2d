@@ -15,7 +15,10 @@ local function addPlatform()
     globals.playerSpeed = globals.playerSpeed * globals.increasePercent
     globals.layersPassed = globals.layersPassed + 1
     if (globals.layersPassed == 10) then
-        globals.setMediumTheme()
+        globals.setTheme('medium')
+    end
+    if (globals.layersPassed == 20) then
+        globals.setTheme('hard')
     end
 end
 

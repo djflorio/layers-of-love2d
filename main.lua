@@ -7,7 +7,7 @@ local background = require 'parts.background'
 
 function love.load()
     world = bump.newWorld(16)
-    font = love.graphics.newFont(20)
+    font = love.graphics.newFont(16)
     love.graphics.setFont(font)
     floor.init(world)
     platforms.init(world)
