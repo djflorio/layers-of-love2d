@@ -89,7 +89,7 @@ end
 
 player.draw = function()
     if animations.hurt.playing then
-        love.graphics.setColor(animations.hurt.color)
+        love.graphics.setColor(globals.colors.hurt)
     else
         love.graphics.setColor(globals.colors.primary)
     end

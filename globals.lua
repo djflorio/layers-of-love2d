@@ -2,7 +2,7 @@ local genColor = function(r, g, b, a)
     local forWeb = false
     a = a or 1
     if forWeb then
-        return {r, g, b, a}
+        return {r, g, b, a*255}
     end
     return {r/255, g/255, b/255, a}
 end
@@ -11,22 +11,26 @@ local themes = {
     easy = {
         primary = genColor(49, 71, 49),
         secondary = genColor(154, 224, 154),
-        hud = genColor(255, 255, 255, 0.8)
+        black = genColor(0, 0, 0, 0.9),
+        hurt = genColor(244, 92, 66)
     },
     medium = {
         primary = genColor(104, 74, 19),
         secondary = genColor(239, 206, 141),
-        hud = genColor(255, 255, 255, 0.8)
+        black = genColor(0, 0, 0, 0.9),
+        hurt = genColor(244, 92, 66)
     },
     hard = {
         primary = genColor(81, 30, 7),
         secondary = genColor(247, 140, 91),
-        hud = genColor(255, 255, 255, 0.8)
+        black = genColor(0, 0, 0, 0.9),
+        hurt = genColor(244, 92, 66)
     },
     expert = {
         primary = genColor(255, 50, 50),
         secondary = genColor(0, 0, 0),
-        hud = genColor(255, 255, 255, 0.8)
+        black = genColor(0, 0, 0, 0.9),
+        hurt = genColor(244, 92, 66)
     }
 }
 
