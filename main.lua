@@ -4,6 +4,7 @@ local platforms = require 'parts.platforms'
 local floor = require 'parts.floor'
 local hud = require 'parts.hud'
 local background = require 'parts.background'
+local audio = require 'assets.audio'
 
 function love.load()
     world = bump.newWorld(16)
@@ -12,6 +13,7 @@ function love.load()
     floor.init(world)
     platforms.init(world)
     player.init(world)
+    audio.init()
 end
 
 function love.update(dt)

@@ -1,10 +1,11 @@
 local globals = require 'globals'
-
 local Platform = require 'parts.Platform'
+local audio = require 'assets.audio'
 
 local platforms = {}
 
 local function addPlatform()
+    audio.pass:play()
     local topY = platforms[#platforms].p1.y
     local w = love.graphics.getWidth()
     local start = love.math.random(10, w - globals.holeSize)

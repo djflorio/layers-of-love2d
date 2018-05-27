@@ -1,4 +1,5 @@
 local globals = require 'globals'
+local audio = require 'assets.audio'
 
 local player = {
     w = 32,
@@ -41,9 +42,11 @@ player.update = function(dt)
         if (goalX >= love.graphics.getWidth() - player.w) then
             goalX = love.graphics.getWidth() - player.w
             player.xVelocity = -globals.playerSpeed
+            audio.wallhit:play()
         elseif (goalX <= 0) then
             goalX = 0
             player.xVelocity = globals.playerSpeed
+            audio.wallhit:play()
         end
     end
     local goalY = player.y + player.yVelocity
@@ -56,6 +59,7 @@ player.update = function(dt)
     if love.keyboard.isDown("space") and not player.isJumping then
         player.isJumping = true
         player.jumpStart = player.y
+        audio.jump:play()
     end
 
     if player.isJumping and not player.hasReachedMax then
@@ -76,6 +80,9 @@ player.update = function(dt)
         elseif coll.normal.y < 0 then
             player.hasReachedMax = false
             player.isJumping = false
+            if not player.isGrounded then
+                audio.land:play()
+            end
             player.isGrounded = true
         end
     end
