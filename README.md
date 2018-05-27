@@ -9,14 +9,10 @@ Download the following libraries and put them in a top level folder called "lib"
 - hump: https://github.com/vrld/hump
 
 ## TODO
-- Game over or reduce health if opening is missed
 - Spawn powerups in holes periodically that:
   - Temporarily increase hole size
   - Temporarily reduce speed
   - Temporarily reduce player size
-- Add sound effects
-- Make the game prettier
-- Style the HUD
 
 ## Contributions
 This is supposed to be a simple portfolio piece for me, so I won't be accepting contributions for the time being. I'm open to it in the future, though!
