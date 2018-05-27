@@ -39,6 +39,7 @@ local themes = {
 }
 
 local globals = {}
+globals.started = false
 
 globals.init = function()
     globals.holeSize = 100

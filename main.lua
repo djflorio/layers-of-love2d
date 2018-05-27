@@ -8,6 +8,7 @@ local audio = require 'assets.audio'
 local animations = require 'parts.animations'
 local globals = require 'globals'
 local gameover = require 'parts.gameover'
+local start = require 'parts.start'
 local fonts = require 'parts.fonts'
 
 function love.load()
@@ -22,11 +23,13 @@ function love.load()
 end
 
 function love.update(dt)
-    if globals.playing then
+    if globals.playing and globals.started then
         player.update(dt)
         platforms.update(player, dt)
-    elseif love.keyboard.isDown("return") then
+    elseif love.keyboard.isDown("return") and globals.started then
         love.load()
+    elseif love.keyboard.isDown("return") and not globals.started then
+        globals.started = true
     end
     animations.update()
 end
@@ -46,5 +49,8 @@ function love.draw()
     hud.draw(yOffset)
     if not globals.playing then
         gameover.draw(yOffset)
+    end
+    if not globals.started then
+        start.draw(yOffset)
     end
 end
