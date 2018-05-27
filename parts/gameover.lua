@@ -5,7 +5,7 @@ local gameover = {}
 
 gameover.draw = function(offset)
     love.graphics.setFont(fonts.big)
-    love.graphics.setColor(0, 0, 0, 0.9)
+    love.graphics.setColor(globals.colors.black)
     love.graphics.rectangle(
         'fill',
         0,
@@ -14,7 +14,7 @@ gameover.draw = function(offset)
         love.graphics.getHeight()
     )
     local w = love.graphics.getWidth()
-    love.graphics.setColor(1, 1, 1)
+    love.graphics.setColor(globals.colors.white)
     love.graphics.printf("GAME OVER", 0, 170 - offset, w, "center")
     love.graphics.setFont(fonts.medium)
     love.graphics.printf(

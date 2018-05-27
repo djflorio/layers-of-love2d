@@ -12,6 +12,7 @@ local themes = {
         primary = genColor(49, 71, 49),
         secondary = genColor(154, 224, 154),
         black = genColor(0, 0, 0, 0.9),
+        white = genColor(255, 255, 255),
         hurt = genColor(244, 92, 66)
     },
     medium = {
