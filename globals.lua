@@ -1,5 +1,9 @@
 local genColor = function(r, g, b, a)
+    local forWeb = false
     a = a or 1
+    if forWeb then
+        return {r, g, b, a}
+    end
     return {r/255, g/255, b/255, a}
 end
 
