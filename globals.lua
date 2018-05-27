@@ -28,7 +28,8 @@ local globals = {
     playerHealth = 3,
     increasePercent = 1.05,
     layersPassed = 0,
-    colors = themes.easy
+    colors = themes.easy,
+    playing = true
 }
 
 globals.setTheme = function(theme)

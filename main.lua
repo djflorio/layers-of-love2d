@@ -6,6 +6,7 @@ local hud = require 'parts.hud'
 local background = require 'parts.background'
 local audio = require 'assets.audio'
 local animations = require 'parts.animations'
+local globals = require 'globals'
 
 function love.load()
     world = bump.newWorld(16)
@@ -18,8 +19,11 @@ function love.load()
 end
 
 function love.update(dt)
-    player.update(dt)
-    platforms.update(player, dt)
+    if globals.playing then
+        player.update(dt)
+        platforms.update(player, dt)
+    end
+    animations.update()
 end
 
 function love.draw()

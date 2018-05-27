@@ -82,6 +82,9 @@ player.update = function(dt)
                 player.hasReachedMax = true
                 player.isGrounded = false
                 globals.playerHealth = globals.playerHealth - 1
+                if globals.playerHealth <= 0 then
+                    globals.playing = false
+                end
             end
 
         elseif coll.normal.y < 0 then
@@ -91,13 +94,6 @@ player.update = function(dt)
                 audio.land:play()
             end
             player.isGrounded = true
-        end
-    end
-
-    if animations.hurt.playing then
-        local passed = os.clock() - animations.hurt.startTime
-        if passed >= animations.hurt.duration then
-            animations.hurt.playing = false
         end
     end
 end
