@@ -21,6 +21,10 @@ local function addPlatform()
     if (globals.layersPassed == 20) then
         globals.setTheme('hard')
     end
+    if (globals.layersPassed == 30) then
+        globals.setTheme('expert')
+    end
+    print(globals.playerSpeed)
 end
 
 platforms.init = function(world)

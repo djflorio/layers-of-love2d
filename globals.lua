@@ -5,37 +5,27 @@ end
 
 local themes = {
     easy = {
-        background = genColor(154, 224, 154),
-        player = genColor(56, 86, 51),
-        floor = genColor(49, 71, 49),
-        platform = genColor(49, 71, 49),
-        platformCleared = genColor(49, 71, 49),
-        hudText = genColor(185, 232, 185),
-        hudBack = genColor(0, 0, 0)
+        primary = genColor(49, 71, 49),
+        secondary = genColor(154, 224, 154)
     },
     medium = {
-        background = genColor(239, 206, 141),
-        player = genColor(140, 104, 35),
-        floor = genColor(104, 74, 19),
-        platform = genColor(104, 74, 19),
-        platformCleared = genColor(104, 74, 19),
-        hudText = genColor(232, 207, 162),
-        hudBack = genColor(0, 0, 0)
+        primary = genColor(104, 74, 19),
+        secondary = genColor(239, 206, 141)
     },
     hard = {
-        background = genColor(247, 140, 91),
-        player = genColor(140, 53, 14),
-        floor = genColor(81, 30, 7),
-        platform = genColor(81, 30, 7),
-        platformCleared = genColor(81, 30, 7),
-        hudText = genColor(237, 194, 175),
-        hudBack = genColor(0, 0, 0, 0.8)
+        primary = genColor(81, 30, 7),
+        secondary = genColor(247, 140, 91)
+    },
+    expert = {
+        primary = genColor(255, 50, 50),
+        secondary = genColor(0, 0, 0)
     }
 }
 
 local globals = {
     holeSize = 100,
     playerSpeed = 5,
+    playerHealth = 3,
     increasePercent = 1.05,
     layersPassed = 0,
     colors = themes.easy
@@ -46,6 +36,8 @@ globals.setTheme = function(level)
         globals.colors = themes.medium
     elseif level == 'hard' then
         globals.colors = themes.hard
+    elseif level == 'expert' then
+        globals.colors = themes.expert
     end
 end
 

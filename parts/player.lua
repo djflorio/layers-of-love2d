@@ -42,11 +42,11 @@ player.update = function(dt)
         if (goalX >= love.graphics.getWidth() - player.w) then
             goalX = love.graphics.getWidth() - player.w
             player.xVelocity = -globals.playerSpeed
-            audio.wallhit:play()
+            audio.land:play()
         elseif (goalX <= 0) then
             goalX = 0
             player.xVelocity = globals.playerSpeed
-            audio.wallhit:play()
+            audio.land:play()
         end
     end
     local goalY = player.y + player.yVelocity
@@ -74,9 +74,12 @@ player.update = function(dt)
 
     for i, coll in ipairs(collisions) do
         if coll.touch.y > goalY then
-            player.hasReachedMax = true
-            player.isGrounded = false
-            print("OUCH")
+            if player.hasReachedMax == false then
+                player.hasReachedMax = true
+                player.isGrounded = false
+                globals.playerHealth = globals.playerHealth - 1
+            end
+
         elseif coll.normal.y < 0 then
             player.hasReachedMax = false
             player.isJumping = false
@@ -89,7 +92,7 @@ player.update = function(dt)
 end
 
 player.draw = function()
-    love.graphics.setColor(globals.colors.player)
+    love.graphics.setColor(globals.colors.primary)
     love.graphics.rectangle(
         'fill',
         player.x,

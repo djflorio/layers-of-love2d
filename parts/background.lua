@@ -8,7 +8,7 @@ local background = {
 }
 
 background.draw = function(offset)
-  love.graphics.setColor(globals.colors.background)
+  love.graphics.setColor(globals.colors.secondary)
   love.graphics.rectangle(
     'fill',
     background.x,

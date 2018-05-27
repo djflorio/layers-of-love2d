@@ -51,7 +51,7 @@ end
 
 function Platform:draw(p)
     if not p.closed then
-        love.graphics.setColor(globals.colors.platform)
+        love.graphics.setColor(globals.colors.primary)
         love.graphics.rectangle(
             'fill',
             p.p1.x,
@@ -67,7 +67,7 @@ function Platform:draw(p)
             p.p2.h
         )
     else
-        love.graphics.setColor(globals.colors.platformCleared)
+        love.graphics.setColor(globals.colors.primary)
         love.graphics.rectangle(
             'fill',
             p.full.x,
