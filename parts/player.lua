@@ -11,7 +11,7 @@ local player = {
     gravity = 100,
     friction = 5,
     jumpSpeed = 30,
-    isGrounded = false,
+    isGrounded = true,
     isJumping = false,
     hasReachedMax = false,
     jumpStart = 0,
@@ -75,6 +75,7 @@ player.update = function(dt)
     for i, coll in ipairs(collisions) do
         if coll.touch.y > goalY then
             if player.hasReachedMax == false then
+                audio.hurt:play()
                 player.hasReachedMax = true
                 player.isGrounded = false
                 globals.playerHealth = globals.playerHealth - 1
