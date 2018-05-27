@@ -31,12 +31,12 @@ local globals = {
     colors = themes.easy
 }
 
-globals.setTheme = function(level)
-    if level == 'medium' then
+globals.setTheme = function(theme)
+    if theme == 'medium' then
         globals.colors = themes.medium
-    elseif level == 'hard' then
+    elseif theme == 'hard' then
         globals.colors = themes.hard
-    elseif level == 'expert' then
+    elseif theme == 'expert' then
         globals.colors = themes.expert
     end
 end

@@ -5,6 +5,7 @@ local floor = require 'parts.floor'
 local hud = require 'parts.hud'
 local background = require 'parts.background'
 local audio = require 'assets.audio'
+local animations = require 'parts.animations'
 
 function love.load()
     world = bump.newWorld(16)
@@ -22,11 +23,16 @@ function love.update(dt)
 end
 
 function love.draw()
-    local offset = -player.y + love.graphics.getHeight() - 200
-    love.graphics.translate(0, offset)
-    background.draw(offset)
+    local xOffset = 0
+    local yOffset = -player.y + love.graphics.getHeight() - 200
+    if animations.hurt.playing then
+        xOffset = love.math.random(-10, 10)
+        yOffset = yOffset + love.math.random(-10, 10)
+    end
+    love.graphics.translate(xOffset, yOffset)
+    background.draw(yOffset)
     floor.draw()
     platforms.draw()
     player.draw()
-    hud.draw(offset)
+    hud.draw(yOffset)
 end

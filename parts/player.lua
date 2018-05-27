@@ -1,5 +1,6 @@
 local globals = require 'globals'
 local audio = require 'assets.audio'
+local animations = require 'parts.animations'
 
 local player = {
     w = 32,
@@ -76,6 +77,8 @@ player.update = function(dt)
         if coll.touch.y > goalY then
             if player.hasReachedMax == false then
                 audio.hurt:play()
+                animations.hurt.playing = true
+                animations.hurt.startTime = os.clock()
                 player.hasReachedMax = true
                 player.isGrounded = false
                 globals.playerHealth = globals.playerHealth - 1
@@ -90,10 +93,21 @@ player.update = function(dt)
             player.isGrounded = true
         end
     end
+
+    if animations.hurt.playing then
+        local passed = os.clock() - animations.hurt.startTime
+        if passed >= animations.hurt.duration then
+            animations.hurt.playing = false
+        end
+    end
 end
 
 player.draw = function()
-    love.graphics.setColor(globals.colors.primary)
+    if animations.hurt.playing then
+        love.graphics.setColor(animations.hurt.color)
+    else
+        love.graphics.setColor(globals.colors.primary)
+    end
     love.graphics.rectangle(
         'fill',
         player.x,
