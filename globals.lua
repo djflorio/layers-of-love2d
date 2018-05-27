@@ -19,18 +19,21 @@ local themes = {
         primary = genColor(104, 74, 19),
         secondary = genColor(239, 206, 141),
         black = genColor(0, 0, 0, 0.9),
+        white = genColor(255, 255, 255),
         hurt = genColor(244, 92, 66)
     },
     hard = {
         primary = genColor(81, 30, 7),
         secondary = genColor(247, 140, 91),
         black = genColor(0, 0, 0, 0.9),
+        white = genColor(255, 255, 255),
         hurt = genColor(244, 92, 66)
     },
     expert = {
         primary = genColor(255, 50, 50),
         secondary = genColor(0, 0, 0),
         black = genColor(0, 0, 0, 0.9),
+        white = genColor(255, 255, 255),
         hurt = genColor(244, 92, 66)
     }
 }
